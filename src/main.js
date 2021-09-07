@@ -10,11 +10,11 @@ const menu = new Menu();
 
 menu.add("button.add-line", () => {
   console.log("about to add a line");
-  board.startToInsert(new Line());
+  board.insertStart(new Line());
 });
 menu.add("button.add-circle", () => {
   console.log("about to add a circle");
-  board.startToInsert(new Circle());
+  board.insertStart(new Circle());
 });
 menu.add("button.erase-object", () => {
   console.log("about to erase the selected object");
