@@ -40,6 +40,13 @@ aside button {
   margin: 0.3em;
   width: 3em;
   height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+aside button img {
+  width: 100%;
 }
 
 main {
