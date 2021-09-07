@@ -40,6 +40,19 @@ aside button {
 
 main {
   grid-area: main;
+  display: flex;
+  flex-flow: column;
+}
+
+main .svg {
+  flex-grow: 1;
+  background: #ddd;
+}
+
+main .status {
+  display: flex;
+  align-items: center;
+  height: 2em;
 }
 
 footer {
