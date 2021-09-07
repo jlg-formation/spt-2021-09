@@ -15,4 +15,9 @@ export class DrawingBoard {
   constructor() {
     this.state = STATE.DEFAULT;
   }
+
+  startToInsert(widget) {
+    console.log("startToInsert");
+    this.state = STATE.INSERT;
+  }
 }
