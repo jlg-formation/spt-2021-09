@@ -12,7 +12,7 @@ menu.add("button.add-line", () => {
 });
 menu.add("button.add-circle", () => {
   console.log("about to add a circle");
-  board.state = STATE.INSERT;
+  board.state = STATE.SELECTION;
 });
 menu.add("button.erase-object", () => {
   console.log("about to erase the selected object");
