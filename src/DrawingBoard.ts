@@ -75,7 +75,7 @@ export class DrawingBoard {
   }
 
   deleteSelectedWidget() {
-    this.selectedWidget.remove();
+    this.selectedWidget.remove(this);
   }
 
   insertEnd() {

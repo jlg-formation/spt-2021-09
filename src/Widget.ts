@@ -26,8 +26,15 @@ export class Widget {
     throw new Error("Method not implemented.");
   }
 
-  remove() {
-    throw new Error("Method not implemented.");
+  remove(board: DrawingBoard) {
+    const elt = board.contentElt.querySelector(
+      `[data-id="${this.id}"]`
+    ) as Element;
+    elt.remove();
+    const elt2 = board.selectionElt.querySelector(
+      `[data-id="${this.id}"]`
+    ) as Element;
+    elt2.remove();
   }
 
   select(board: DrawingBoard) {
