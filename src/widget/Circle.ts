@@ -21,6 +21,7 @@ export class Circle extends Widget {
 
     board.contentElt.appendChild(circle);
   }
+
   deposeSelection(board: DrawingBoard) {
     const r = 30;
     const { x: cx, y: cy } = board.curPos;
@@ -34,5 +35,10 @@ export class Circle extends Widget {
     circle.setAttribute("r", "" + r);
 
     board.selectionElt.appendChild(circle);
+
+    circle.addEventListener("click", (event: Event) => {
+      event.stopPropagation();
+      console.log("click on circle");
+    });
   }
 }
