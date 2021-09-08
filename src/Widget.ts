@@ -3,11 +3,7 @@ import { Point } from "./interfaces/Point";
 
 let counter = 1;
 export class Widget {
-  id: string;
-
-  constructor() {
-    this.id = "" + counter++;
-  }
+  id = "" + counter++;
 
   addEditionPoint(board: DrawingBoard, p: Point) {
     const circle = document.createElementNS(
