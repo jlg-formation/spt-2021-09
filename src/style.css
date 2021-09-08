@@ -96,3 +96,9 @@ circle {
   stroke-width: 2;
   fill: transparent;
 }
+
+g.selection circle {
+  stroke: transparent;
+  stroke-width: 30;
+  cursor: pointer;
+}
