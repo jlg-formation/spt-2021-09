@@ -1,3 +1,4 @@
+import { Point } from "./interfaces/Point";
 import { getPosition } from "./utils";
 import { Widget } from "./Widget";
 
@@ -11,15 +12,15 @@ export const STATE = {
 export class DrawingBoard {
   cursorPosElt: any;
   private _state: any;
-  curPos: { x: number; y: number };
-  widgetBeingInserted: Widget;
+  curPos: Point = { x: 0, y: 0 };
+  widgetBeingInserted!: Widget;
+  svgElt: SVGElement;
   set state(val) {
     console.log("val: ", val);
-    const elt = document.querySelector(".status");
+    const elt = document.querySelector(".status") as HTMLElement;
     elt.innerHTML = val;
-    const svgElt = document.querySelector("svg.svg");
-    svgElt.setAttribute("class", "svg");
-    svgElt.classList.add(val);
+    this.svgElt.setAttribute("class", "svg");
+    this.svgElt.classList.add(val);
     this.cursorPosElt.innerHTML = "";
     this._state = val;
   }
@@ -29,11 +30,12 @@ export class DrawingBoard {
   }
 
   constructor() {
+    this.svgElt = document.querySelector("svg.svg") as SVGElement;
     this.cursorPosElt = document.querySelector(".cursor-position");
     this.state = STATE.DEFAULT;
     console.log("this: ", this);
 
-    document.querySelector("svg").addEventListener("click", () => {
+    this.svgElt.addEventListener("click", () => {
       console.log("click on svg", this);
       console.log("this.state: ", this.state);
       if (this.state === STATE.INSERT) {
@@ -41,7 +43,7 @@ export class DrawingBoard {
       }
     });
 
-    document.querySelector("svg.svg").addEventListener("mousemove", (event) => {
+    this.svgElt.addEventListener("mousemove", (event) => {
       if (this.state === STATE.INSERT) {
         // on affiche les coordonnees.
         const { x, y } = getPosition(event);
