@@ -84,3 +84,9 @@ line {
   stroke: black;
   stroke-width: 2;
 }
+
+circle {
+  stroke: black;
+  stroke-width: 2;
+  fill: transparent;
+}
