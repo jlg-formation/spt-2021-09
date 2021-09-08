@@ -56,9 +56,13 @@ main {
   flex-flow: column;
 }
 
-main .svg {
+main svg.svg {
   flex-grow: 1;
   background: #ddd;
+}
+
+main svg.svg.insert {
+  cursor: crosshair;
 }
 
 main .status {

@@ -10,6 +10,9 @@ export class DrawingBoard {
     console.log("val: ", val);
     const elt = document.querySelector(".status");
     elt.innerHTML = val;
+    const svgElt = document.querySelector("svg.svg");
+    svgElt.setAttribute("class", "svg");
+    svgElt.classList.add(val);
     this._state = val;
   }
 
