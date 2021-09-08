@@ -22,6 +22,7 @@ export class Circle extends Widget {
     circle.setAttribute("cx", "" + cx);
     circle.setAttribute("cy", "" + cy);
     circle.setAttribute("r", "" + this.r);
+    circle.setAttribute("data-id", this.id);
 
     board.contentElt.appendChild(circle);
   }
@@ -36,6 +37,7 @@ export class Circle extends Widget {
     circle.setAttribute("cx", "" + cx);
     circle.setAttribute("cy", "" + cy);
     circle.setAttribute("r", "" + this.r);
+    circle.setAttribute("data-id", this.id);
 
     board.selectionElt.appendChild(circle);
 

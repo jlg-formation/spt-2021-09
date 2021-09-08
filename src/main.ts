@@ -17,5 +17,8 @@ menu.add("button.add-circle", () => {
 });
 menu.add("button.erase-object", () => {
   console.log("about to erase the selected object");
+  if (board.state === STATE.SELECTION) {
+    board.deleteSelectedWidget();
+  }
   board.state = STATE.DEFAULT;
 });

@@ -15,11 +15,11 @@ export class DrawingBoard {
   contentElt: SVGGElement;
   curPos: Point = { x: 0, y: 0 };
   cursorPosElt: any;
-  selectionElt: SVGGElement;
   editionElt: SVGGElement;
+  selectedWidget!: Widget;
+  selectionElt: SVGGElement;
   svgElt: SVGElement;
   widgetBeingInserted!: Widget;
-  selectedWidget!: Widget;
 
   constructor() {
     this.svgElt = document.querySelector("svg.svg") as SVGElement;
@@ -56,13 +56,6 @@ export class DrawingBoard {
       }
     });
   }
-  unselect() {
-    this.editionElt.parentElement?.removeChild(this.editionElt);
-    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
-    g.setAttribute("class", "edition");
-    this.svgElt.appendChild(g);
-    this.editionElt = g;
-  }
 
   get state() {
     return this._state;
@@ -81,6 +74,10 @@ export class DrawingBoard {
     this._state = val;
   }
 
+  deleteSelectedWidget() {
+    this.selectedWidget.remove();
+  }
+
   insertEnd() {
     console.log("insertEnd");
     this.state = STATE.DEFAULT;
@@ -97,5 +94,13 @@ export class DrawingBoard {
     this.state = STATE.SELECTION;
     this.selectedWidget = widget;
     widget.select(this);
+  }
+
+  unselect() {
+    this.editionElt.parentElement?.removeChild(this.editionElt);
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("class", "edition");
+    this.svgElt.appendChild(g);
+    this.editionElt = g;
   }
 }

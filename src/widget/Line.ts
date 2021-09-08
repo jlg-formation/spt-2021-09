@@ -25,6 +25,7 @@ export class Line extends Widget {
     line.setAttribute("y1", "" + this.y1);
     line.setAttribute("x2", "" + this.x2);
     line.setAttribute("y2", "" + this.y2);
+    line.setAttribute("data-id", this.id);
 
     board.contentElt.appendChild(line);
   }
@@ -39,6 +40,7 @@ export class Line extends Widget {
     line.setAttribute("y1", "" + y1);
     line.setAttribute("x2", "" + x2);
     line.setAttribute("y2", "" + y2);
+    line.setAttribute("data-id", this.id);
 
     board.selectionElt.appendChild(line);
 
