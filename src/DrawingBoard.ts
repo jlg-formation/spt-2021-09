@@ -62,6 +62,6 @@ export class DrawingBoard {
   insertEnd() {
     console.log("insertEnd");
     this.state = STATE.DEFAULT;
-    this.widgetBeingInserted.depose(this.curPos);
+    this.widgetBeingInserted.depose(this);
   }
 }

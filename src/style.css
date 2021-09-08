@@ -79,3 +79,8 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
+line {
+  stroke: black;
+  stroke-width: 2;
+}

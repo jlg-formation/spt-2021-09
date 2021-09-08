@@ -1,6 +1,6 @@
-import { Point } from "./interfaces/Point";
+import { DrawingBoard } from "./DrawingBoard";
 export class Widget {
-  depose(curPos: Point) {
+  depose(board: DrawingBoard) {
     throw new Error("Method not implemented.");
   }
 }
