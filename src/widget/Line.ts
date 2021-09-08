@@ -13,6 +13,6 @@ export class Line extends Widget {
     line.setAttribute("x2", "" + x2);
     line.setAttribute("y2", "" + y2);
 
-    board.svgElt.appendChild(line);
+    board.contentElt.appendChild(line);
   }
 }

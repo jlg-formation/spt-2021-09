@@ -16,9 +16,13 @@ export class DrawingBoard {
   cursorPosElt: any;
   svgElt: SVGElement;
   widgetBeingInserted!: Widget;
+  contentElt: SVGGElement;
 
   constructor() {
     this.svgElt = document.querySelector("svg.svg") as SVGElement;
+    this.contentElt = document.querySelector(
+      "svg.svg g.content"
+    ) as SVGGElement;
     this.cursorPosElt = document.querySelector(".cursor-position");
     this.state = STATE.DEFAULT;
     console.log("this: ", this);
