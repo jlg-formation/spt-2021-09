@@ -65,9 +65,10 @@ main svg.svg.insert {
   cursor: crosshair;
 }
 
-main .status {
+main .status-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 2em;
 }
 
