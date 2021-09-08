@@ -47,6 +47,7 @@ export class Circle extends Widget {
   }
 
   select(board: DrawingBoard) {
+    board.unselect();
     this.addEditionPoint(board, { x: this.cx, y: this.cy });
     this.addEditionPoint(board, { x: this.cx, y: this.cy - this.r });
   }
