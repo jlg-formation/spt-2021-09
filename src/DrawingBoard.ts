@@ -43,7 +43,6 @@ export class DrawingBoard {
         this.insertEnd();
       }
       if (this.state === STATE.SELECTION) {
-        this.unselect();
         this.state = STATE.DEFAULT;
       }
     });
@@ -76,6 +75,9 @@ export class DrawingBoard {
     this.svgElt.setAttribute("class", "svg");
     this.svgElt.classList.add(val);
     this.cursorPosElt.innerHTML = "";
+    if (this._state === STATE.SELECTION) {
+      this.unselect();
+    }
     this._state = val;
   }
 
