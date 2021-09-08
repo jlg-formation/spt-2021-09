@@ -1,4 +1,4 @@
-export function getPosition(event) {
+export function getPosition(event: any) {
   console.log("event: ", event);
   const e = event.target;
   const dim = e.getBoundingClientRect();

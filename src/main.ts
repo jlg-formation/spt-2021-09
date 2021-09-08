@@ -1,9 +1,8 @@
-import "./style.css";
-
-import { Menu } from "./Menu";
 import { DrawingBoard, STATE } from "./DrawingBoard";
-import { Line } from "./widget/Line";
+import { Menu } from "./Menu";
+import "./style.css";
 import { Circle } from "./widget/Circle";
+import { Line } from "./widget/Line";
 
 const board = new DrawingBoard();
 const menu = new Menu();
