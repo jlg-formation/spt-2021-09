@@ -10,24 +10,12 @@ export const STATE = {
 };
 
 export class DrawingBoard {
-  cursorPosElt: any;
   private _state: any;
-  curPos: Point = { x: 0, y: 0 };
-  widgetBeingInserted!: Widget;
-  svgElt: SVGElement;
-  set state(val) {
-    console.log("val: ", val);
-    const elt = document.querySelector(".status") as HTMLElement;
-    elt.innerHTML = val;
-    this.svgElt.setAttribute("class", "svg");
-    this.svgElt.classList.add(val);
-    this.cursorPosElt.innerHTML = "";
-    this._state = val;
-  }
 
-  get state() {
-    return this._state;
-  }
+  curPos: Point = { x: 0, y: 0 };
+  cursorPosElt: any;
+  svgElt: SVGElement;
+  widgetBeingInserted!: Widget;
 
   constructor() {
     this.svgElt = document.querySelector("svg.svg") as SVGElement;
@@ -53,15 +41,29 @@ export class DrawingBoard {
     });
   }
 
-  insertStart(widget: Widget) {
-    console.log("startToInsert");
-    this.state = STATE.INSERT;
-    this.widgetBeingInserted = widget;
+  get state() {
+    return this._state;
+  }
+
+  set state(val) {
+    console.log("val: ", val);
+    const elt = document.querySelector(".status") as HTMLElement;
+    elt.innerHTML = val;
+    this.svgElt.setAttribute("class", "svg");
+    this.svgElt.classList.add(val);
+    this.cursorPosElt.innerHTML = "";
+    this._state = val;
   }
 
   insertEnd() {
     console.log("insertEnd");
     this.state = STATE.DEFAULT;
     this.widgetBeingInserted.depose(this);
+  }
+
+  insertStart(widget: Widget) {
+    console.log("startToInsert");
+    this.state = STATE.INSERT;
+    this.widgetBeingInserted = widget;
   }
 }
